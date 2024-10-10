@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AIUtility : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
+    public enum State
+  {
+    IDLE,
+    WALKING,
+    ATTACKING,
+    DEAD
 
-    private void Update()
-    {
-        
-    }
+  }
 }
