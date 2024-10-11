@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour
   private Rigidbody2D rigidbody;
   private Vector2 movement;
   private bool isJumping;
+  private AudioSource audioSource;
+
+  public AudioClip collectSound;
 
 
   private void Start()
   {
     rigidbody = GetComponent<Rigidbody2D>();
+    audioSource = GetComponent<AudioSource>();
     isJumping = false;
   }
 
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
     if (collision.CompareTag("Collectable"))
     {
       Destroy(collision.gameObject);
+      audioSource.PlayOneShot(collectSound);
     }
   }
 }
