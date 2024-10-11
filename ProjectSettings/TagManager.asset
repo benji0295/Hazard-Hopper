@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Collectable
+  - Door
+  - Water
+  - Enemy
   layers:
   - Default
   - TransparentFX

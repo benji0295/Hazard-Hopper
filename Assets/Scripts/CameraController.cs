@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  private GameObject player;
+  public float leftBound = 0.0f;
+  public float rightBound = 21.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  void Start()
+  {
+    player = GameObject.FindGameObjectWithTag("Player");
+  }
+
+  void Update()
+  {
+    Vector3 playerPosition = player.transform.position;
+    Vector3 cameraPosition = transform.position;
+
+    cameraPosition.x = Mathf.Clamp(playerPosition.x, leftBound, rightBound);
+
+    transform.position = cameraPosition;
+  }
 }

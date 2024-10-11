@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,16 +14,19 @@ public class PlayerController : MonoBehaviour
 
   private Rigidbody2D rigidbody;
   private Vector2 movement;
+  private Vector2 startingPosition;
   private bool isJumping;
   private AudioSource audioSource;
 
   public AudioClip collectSound;
 
 
+
   private void Start()
   {
     rigidbody = GetComponent<Rigidbody2D>();
     audioSource = GetComponent<AudioSource>();
+    startingPosition = transform.position;
     isJumping = false;
   }
 
@@ -61,6 +65,14 @@ public class PlayerController : MonoBehaviour
     {
       Destroy(collision.gameObject);
       audioSource.PlayOneShot(collectSound);
+    }
+    if (collision.CompareTag("Enemy"))
+    {
+      transform.position = startingPosition;
+    }
+    if (collision.CompareTag("Door"))
+    {
+      Debug.Log("Next Level.");
     }
   }
 }
