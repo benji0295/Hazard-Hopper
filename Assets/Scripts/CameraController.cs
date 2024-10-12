@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
   private GameObject player;
-  public float leftBound = 0.0f;
-  public float rightBound = 21.0f;
+
 
   void Start()
   {
@@ -15,10 +15,11 @@ public class CameraController : MonoBehaviour
 
   void Update()
   {
-    Vector3 playerPosition = player.transform.position;
-    Vector3 cameraPosition = transform.position;
+    var playerPosition = player.transform.position;
+    var cameraPosition = transform.position;
 
-    cameraPosition.x = Mathf.Clamp(playerPosition.x, leftBound, rightBound);
+    cameraPosition.x = playerPosition.x;
+    cameraPosition.y = playerPosition.y;
 
     transform.position = cameraPosition;
   }

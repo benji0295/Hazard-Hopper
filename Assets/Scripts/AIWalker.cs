@@ -30,14 +30,21 @@ public class AIWalker : MonoBehaviour
     else if (state == AIUtility.State.WALKING)
     {
       // Left sensor
-      if (!IsGrounded(-0.3f, -0.3f) && speed < 0) speed *= -1;
+      if (!IsGrounded(-0.5f, -0.5f) && speed < 0) speed *= -1;
 
       // Right sensor
-      if (!IsGrounded(0.3f, -0.3f) && speed > 0) speed *= -1;
+      if (!IsGrounded(0.5f, -0.5f) && speed > 0) speed *= -1;
 
       Vector2 velocity = rigidbody.velocity;
       velocity.x = speed;
       rigidbody.velocity = velocity;
+    }
+  }
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    if (collision.gameObject.CompareTag("Enemy"))
+    {
+      speed *= -1;
     }
   }
 
