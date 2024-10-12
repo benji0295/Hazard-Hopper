@@ -2970,7 +2970,7 @@ TilemapCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
+  m_Offset: {x: 0, y: -0.15}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
@@ -3482,7 +3482,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a52c61e4d863eb24eb1a6cec742bd3ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3677,13 +3677,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3960565902126796423, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
+      propertyPath: m_Size.x
+      value: 0.66043997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960565902126796423, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
+      propertyPath: m_Size.y
+      value: 0.75321865
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960565902126796423, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0033032894
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960565902126796423, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0011231899
+      objectReference: {fileID: 0}
     - target: {fileID: 6056754705401483847, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.66
       objectReference: {fileID: 0}
     - target: {fileID: 6056754705401483847, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.96
+      value: -2.29
       objectReference: {fileID: 0}
     - target: {fileID: 6056754705401483847, guid: 05c0de77627a94f379a81a95afebebed, type: 3}
       propertyPath: m_LocalPosition.z
