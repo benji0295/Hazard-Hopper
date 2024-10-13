@@ -109,7 +109,18 @@ public class PlayerController : MonoBehaviour
     }
     if (collision.CompareTag("Door"))
     {
-      Debug.Log("Next Level.");
+      if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level1")
+      {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
+      }
+      else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level2")
+      {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level3");
+      }
+      else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level3")
+      {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WinScreen");
+      }
     }
   }
 }
