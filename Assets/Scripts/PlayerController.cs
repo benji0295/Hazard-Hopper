@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum State
@@ -16,10 +17,13 @@ public class PlayerController : MonoBehaviour
   private const int JUMPING_POWER = 6;
   private const float HEIGHT = 1.0f;
   private const float MAX_SPEED = 4.0f;
+  private const float FALL_LIMIT = -10.0f;
   private State state;
   private Animator animator;
 
   public LayerMask groundLayer;
+  public TMP_Text livesText;
+  public TMP_Text scoreText;
 
   private Rigidbody2D rigidbody;
   private SpriteRenderer spriteRenderer;
@@ -39,9 +43,13 @@ public class PlayerController : MonoBehaviour
     audioSource = GetComponent<AudioSource>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     animator = GetComponent<Animator>();
+
     startingPosition = transform.position;
     isJumping = false;
     state = State.IDLE;
+
+    livesText.text = "Lives: " + GameManager.lives;
+    scoreText.text = "Score: " + GameManager.score;
   }
 
   private void Update()
@@ -49,6 +57,20 @@ public class PlayerController : MonoBehaviour
     Vector2 feetPosition = new Vector2(transform.position.x, transform.position.y - HEIGHT / 2.0f);
     Vector2 groundHitBoxDimensions = new Vector2(0.8f, 0.1f);
     isGrounded = Physics2D.OverlapBox(feetPosition, groundHitBoxDimensions, 0, groundLayer);
+
+    if (transform.position.y <= FALL_LIMIT)
+    {
+      transform.position = startingPosition;
+      rigidbody.velocity = UnityEngine.Vector2.zero;
+      GameManager.lives--;
+      livesText.text = "Lives: " + GameManager.lives;
+      scoreText.text = "Score: " + GameManager.score;
+
+      if (GameManager.lives == 0)
+      {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoseScreen");
+      }
+    }
 
     movement.x = Input.GetAxis("Horizontal");
 
@@ -100,12 +122,21 @@ public class PlayerController : MonoBehaviour
   {
     if (collision.CompareTag("Collectable"))
     {
-      Destroy(collision.gameObject);
       audioSource.PlayOneShot(collectSound);
+      Destroy(collision.gameObject);
+      GameManager.score++;
+      scoreText.text = "Score: " + GameManager.score;
     }
     if (collision.CompareTag("Enemy"))
     {
+      GameManager.lives--;
+      livesText.text = "Lives: " + GameManager.lives;
       transform.position = startingPosition;
+
+      if (GameManager.lives == 0)
+      {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoseScreen");
+      }
     }
     if (collision.CompareTag("Door"))
     {
