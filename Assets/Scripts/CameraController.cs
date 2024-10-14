@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     var cameraPosition = transform.position;
 
     cameraPosition.x = playerPosition.x;
-    cameraPosition.y = playerPosition.y;
+    cameraPosition.y = playerPosition.y + 2.0f;
 
     transform.position = cameraPosition;
   }
