@@ -166,7 +166,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  livesText: {fileID: 0}
+  scoreText: {fileID: 0}
   collectSound: {fileID: 8300000, guid: 42ca4781a4b3d4de595dfbd0b47bfaef, type: 3}
+  hitSound: {fileID: 8300000, guid: b9eb4cd21d35b4d798ca5ce6f1987e6a, type: 3}
 --- !u!82 &3085960396633357267
 AudioSource:
   m_ObjectHideFlags: 0

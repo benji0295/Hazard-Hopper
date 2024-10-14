@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
   private AudioSource audioSource;
 
   public AudioClip collectSound;
+  public AudioClip hitSound;
 
 
 
@@ -129,6 +130,7 @@ public class PlayerController : MonoBehaviour
     }
     if (collision.CompareTag("Enemy"))
     {
+      audioSource.PlayOneShot(hitSound);
       GameManager.lives--;
       livesText.text = "Lives: " + GameManager.lives;
       transform.position = startingPosition;
