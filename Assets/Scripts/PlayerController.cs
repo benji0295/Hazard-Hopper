@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour
 
   private void Update()
   {
-    Vector2 feetPosition = new Vector2(transform.position.x, transform.position.y - HEIGHT / 2.0f);
-    Vector2 groundHitBoxDimensions = new Vector2(0.8f, 0.1f);
+    Vector2 feetPosition = new Vector2(transform.position.x, transform.position.y - HEIGHT / 2.5f);
+    Vector2 groundHitBoxDimensions = new Vector2(0.1f, 0.1f);
     isGrounded = Physics2D.OverlapBox(feetPosition, groundHitBoxDimensions, 0, groundLayer);
 
     if (transform.position.y <= FALL_LIMIT)
