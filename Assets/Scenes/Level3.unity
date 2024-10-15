@@ -3983,6 +3983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2976700782029574300, guid: 751519cd320ac4775be394f4f49e3544, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3575215587997355287, guid: 751519cd320ac4775be394f4f49e3544, type: 3}
       propertyPath: m_Name
       value: Saw Half (4)
