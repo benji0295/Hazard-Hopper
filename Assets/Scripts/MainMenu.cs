@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
   void Start()
   {
     GameManager.score = 0;
-    GameManager.lives = 3;
+    GameManager.lives = 5;
   }
   void Update()
   {

@@ -5,6 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
   public static int score = 0;
-  public static int lives = 3;
+  public static int lives = 5;
 
 }
